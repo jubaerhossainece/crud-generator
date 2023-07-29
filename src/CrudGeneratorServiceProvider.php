@@ -3,7 +3,7 @@
 namespace Jubaerhossainece\CrudGenerator;
 
 use Illuminate\Support\ServiceProvider;
-use Commands\CrudGeneratorCommand;
+use Jubaerhossainece\CrudGenerator\Commands\CrudGeneratorCommand;
 
 class CrudGeneratorServiceProvider extends ServiceProvider{
 
