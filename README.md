@@ -19,12 +19,7 @@ composer require jubaerhossainece/crud-generator
 ```php
 // Usage description here
 ```
-
-### Testing
-
-```bash
-composer test
-```
+after installation, run php artisan crud:generate {table_name} command from your laravel projects root directory
 
 ### Changelog
 
@@ -46,7 +41,3 @@ If you discover any security related issues, please email jubaerkuet@gmail.com i
 ## License
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
-
-## Laravel Package Boilerplate
-
-This package was generated using the [Laravel Package Boilerplate](https://laravelpackageboilerplate.com).
