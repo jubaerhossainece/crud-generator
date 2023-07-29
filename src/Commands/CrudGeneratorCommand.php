@@ -37,7 +37,7 @@ class CrudGeneratorCommand extends Command
         $this->call('migrate');
 
         // Append CRUD routes to routes/web.php
-        $routes = "Route::resource('" . Str::plural($table) . "', '" . Str::studly(Str::singular($table)) . "Controller::class');";
+        $routes = "Route::resource('" . Str::plural($table) . "', " . Str::studly(Str::singular($table)) . "Controller::class);";
 
         file_put_contents(base_path('routes/web.php'), $routes, FILE_APPEND);
 
