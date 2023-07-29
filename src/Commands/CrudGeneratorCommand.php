@@ -23,7 +23,8 @@ class CrudGeneratorCommand extends Command
         $this->call('make:request', ['name' => Str::studly(Str::singular($table)) . 'Request']);
 
         // Generate the views
-        // You can copy the Blade templates from the package's views directory to the Laravel project's views directory.
+        $viewsPath = base_path('resources/views/') . $plural;
+        File::copyDirectory(__DIR__ . '/../views', $viewsPath);
 
         // Generate the migration
         $this->call('make:migration', [
@@ -35,7 +36,7 @@ class CrudGeneratorCommand extends Command
         $this->call('migrate');
 
         // Append CRUD routes to routes/web.php
-        $routes = "Route::resource('" . Str::plural($table) . "', '" . Str::studly(Str::singular($table)) . "Controller');";
+        $routes = "Route::resource('" . Str::plural($table) . "', '" . Str::studly(Str::singular($table)) . "Controller::class');";
 
         file_put_contents(base_path('routes/web.php'), $routes, FILE_APPEND);
 
