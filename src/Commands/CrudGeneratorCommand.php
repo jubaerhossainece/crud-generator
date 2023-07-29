@@ -23,7 +23,7 @@ class CrudGeneratorCommand extends Command
         $this->call('make:request', ['name' => Str::studly(Str::singular($table)) . 'Request']);
 
         // Generate the views
-        $viewsPath = base_path('resources/views/') . $plural;
+        $viewsPath = base_path('resources/views/') . Str::plural($table);
         File::copyDirectory(__DIR__ . '/../views', $viewsPath);
 
         // Generate the migration
