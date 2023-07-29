@@ -4,6 +4,7 @@ namespace Jubaerhossainece\CrudGenerator\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Str;
+use Illuminate\Support\Facades\File;
 
 class CrudGeneratorCommand extends Command
 {
