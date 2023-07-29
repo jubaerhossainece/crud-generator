@@ -1,0 +1,54 @@
+{
+    "name": "jubaerhossainece/crud-generator",
+    "description": "creates package for a complete crud files.",
+    "keywords": [
+        "jubaerhossainece",
+        "crud-generator"
+    ],
+    "homepage": "https://github.com/jubaerhossainece/crud-generator",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Md. Jubaer Hossain",
+            "email": "jubaerkuet@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.4|^8.0",
+        "illuminate/support": "^8.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^6.0",
+        "phpunit/phpunit": "^9.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Jubaerhossainece\\CrudGenerator\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Jubaerhossainece\\CrudGenerator\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/phpunit",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Jubaerhossainece\\CrudGenerator\\CrudGeneratorServiceProvider"
+            ],
+            "aliases": {
+                "CrudGenerator": "Jubaerhossainece\\CrudGenerator\\CrudGeneratorFacade"
+            }
+        }
+    }
+}
