@@ -17,7 +17,7 @@ class CrudGeneratorCommand extends Command
         $this->call('make:model', ['name' => Str::studly(Str::singular($table))]);
 
         // Generate the controller
-        $this->call('make:controller', ['name' => Str::studly(Str::singular($table)) . 'Controller --resource']);
+        $this->call('make:controller', ['name' => Str::studly(Str::singular($table)) . 'Controller', '--resource' => true]);
 
         // Generate the request
         $this->call('make:request', ['name' => Str::studly(Str::singular($table)) . 'Request']);
