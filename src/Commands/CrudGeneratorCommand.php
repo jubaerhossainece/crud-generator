@@ -14,13 +14,13 @@ class CrudGeneratorCommand extends Command
     {
         $table = $this->argument('table');
         // Generate the model
-        $this->call('make:model', ['name' => 'Models/' . Str::studly(Str::singular($table))]);
+        $this->call('make:model', ['name' => Str::studly(Str::singular($table))]);
 
         // Generate the controller
-        $this->call('make:controller', ['name' => 'Controllers/' . Str::studly(Str::singular($table)) . 'Controller']);
+        $this->call('make:controller', ['name' => Str::studly(Str::singular($table)) . 'Controller --resource']);
 
         // Generate the request
-        $this->call('make:request', ['name' => 'Requests/' . Str::studly(Str::singular($table)) . 'Request']);
+        $this->call('make:request', ['name' => Str::studly(Str::singular($table)) . 'Request']);
 
         // Generate the views
         // You can copy the Blade templates from the package's views directory to the Laravel project's views directory.
