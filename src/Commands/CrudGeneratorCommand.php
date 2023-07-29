@@ -3,6 +3,7 @@
 namespace Jubaerhossainece\CrudGenerator\Commands;
 
 use Illuminate\Console\Command;
+use Illuminate\Support\Str;
 
 class CrudGeneratorCommand extends Command
 {
@@ -13,13 +14,13 @@ class CrudGeneratorCommand extends Command
     {
         $table = $this->argument('table');
         // Generate the model
-        $this->call('make:model', ['name' => 'Models/' . studly_case(str_singular($table))]);
+        $this->call('make:model', ['name' => 'Models/' . Str::studly(str_singular($table))]);
 
         // Generate the controller
-        $this->call('make:controller', ['name' => 'Controllers/' . studly_case(str_singular($table)) . 'Controller']);
+        $this->call('make:controller', ['name' => 'Controllers/' . Str::studly(str_singular($table)) . 'Controller']);
 
         // Generate the request
-        $this->call('make:request', ['name' => 'Requests/' . studly_case(str_singular($table)) . 'Request']);
+        $this->call('make:request', ['name' => 'Requests/' . Str::studly(str_singular($table)) . 'Request']);
 
         // Generate the views
         // You can copy the Blade templates from the package's views directory to the Laravel project's views directory.
@@ -34,7 +35,7 @@ class CrudGeneratorCommand extends Command
         $this->call('migrate');
 
         // Append CRUD routes to routes/web.php
-        $routes = "Route::resource('" . str_plural($table) . "', '" . studly_case(str_singular($table)) . "Controller');";
+        $routes = "Route::resource('" . str_plural($table) . "', '" . Str::studly(str_singular($table)) . "Controller');";
 
         file_put_contents(base_path('routes/web.php'), $routes, FILE_APPEND);
 
