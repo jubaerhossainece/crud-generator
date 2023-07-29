@@ -14,13 +14,13 @@ class CrudGeneratorCommand extends Command
     {
         $table = $this->argument('table');
         // Generate the model
-        $this->call('make:model', ['name' => 'Models/' . Str::studly(Str::singular($value)($table))]);
+        $this->call('make:model', ['name' => 'Models/' . Str::studly(Str::singular($table))]);
 
         // Generate the controller
-        $this->call('make:controller', ['name' => 'Controllers/' . Str::studly(Str::singular($value)($table)) . 'Controller']);
+        $this->call('make:controller', ['name' => 'Controllers/' . Str::studly(Str::singular($table)) . 'Controller']);
 
         // Generate the request
-        $this->call('make:request', ['name' => 'Requests/' . Str::studly(Str::singular($value)($table)) . 'Request']);
+        $this->call('make:request', ['name' => 'Requests/' . Str::studly(Str::singular($table)) . 'Request']);
 
         // Generate the views
         // You can copy the Blade templates from the package's views directory to the Laravel project's views directory.
@@ -35,7 +35,7 @@ class CrudGeneratorCommand extends Command
         $this->call('migrate');
 
         // Append CRUD routes to routes/web.php
-        $routes = "Route::resource('" . Str::plural($table) . "', '" . Str::studly(Str::singular($value)($table)) . "Controller');";
+        $routes = "Route::resource('" . Str::plural($table) . "', '" . Str::studly(Str::singular($table)) . "Controller');";
 
         file_put_contents(base_path('routes/web.php'), $routes, FILE_APPEND);
 
